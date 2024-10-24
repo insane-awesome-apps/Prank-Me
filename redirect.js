@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 
 // Set your target URL for redirection here
-const targetUrl = "http://192.168.1.71:3000"; // Change this to your desired URL
+const targetUrl = "https://prank-me.onrender.com"; // Change this to your desired URL
 
 // Set up the proxy middleware
 app.use(
@@ -12,6 +12,7 @@ app.use(
   createProxyMiddleware({
     target: targetUrl,
     changeOrigin: true,
+    secure: true,
     pathRewrite: {
       "^/": "/", // Modify path as necessary
     },
